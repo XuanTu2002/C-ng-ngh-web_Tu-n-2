@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Thông tin sinh viên</h2>
+    <p>Họ và tên: Nguyễn Xuân Tự</p>
+    <p>Lớp: 755006</p>
+    <p>MSSV: 20227271</p>
+    <h1>Tổng của mảng</h1>
+    <input type="text" id="arrayInput" placeholder="Nhập các số, ngăn cách bởi dấu phẩy">
+    <button id="sumButton">Tính tổng</button>
+    <p id="result"></p>
+    
+    <script>
+        function sumArray(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        function calculateSum() {
+            let input = document.getElementById("arrayInput").value;
+            let numbers = input.split(",").map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
+            let result = sumArray(numbers);
+            document.getElementById("result").textContent = "Tổng: " + result;
+        }
+
+        document.getElementById("sumButton").addEventListener("click", calculateSum);
+    </script>
+</body>
+</html>
